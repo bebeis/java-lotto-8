@@ -1,7 +1,7 @@
 package lotto.domain.purchase;
 
 public record PurchaseAmount(int amount) {
-    private static final int LOTTO_PRICE = 1000;
+    public static final int LOTTO_PRICE = 1000;
 
     public PurchaseAmount {
         validateGreaterThanMinimumAmount(amount);

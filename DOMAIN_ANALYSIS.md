@@ -66,7 +66,6 @@
         - LottoTicket
             - Lotto
         - PurchaseAmount
-        - LottoPrice
 
 - 추첨: Draw
     - VO
