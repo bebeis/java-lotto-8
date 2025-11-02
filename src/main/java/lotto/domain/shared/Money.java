@@ -1,4 +1,4 @@
-package lotto.domain.vo;
+package lotto.domain.shared;
 
 import lotto.common.CommonErrorMessage;
 
