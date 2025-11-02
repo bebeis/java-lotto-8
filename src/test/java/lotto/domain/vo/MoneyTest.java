@@ -1,9 +1,11 @@
 package lotto.domain.vo;
 
+import lotto.common.CommonErrorMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MoneyTest {
@@ -25,7 +27,7 @@ class MoneyTest {
         Money money = new Money(value);
 
         // then
-        assertThat(money.value()).isEqualTo(value);
+        assertThat(money.amount()).isEqualTo(value);
     }
 
 }
