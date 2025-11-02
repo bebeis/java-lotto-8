@@ -1,6 +1,7 @@
 package lotto.domain.purchase;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
 
 import java.util.List;

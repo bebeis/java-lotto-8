@@ -1,6 +1,8 @@
 package lotto.domain.purchase;
 
+import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
+import lotto.domain.shared.SharedErrorMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,7 +31,7 @@ class LottoTest {
                         new LottoNumber(7)
                 )))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(PurchaseErrorMessage.INVALID_LOTTO_NUMBER_COUNT.message().formatted(6));
+                .hasMessage(SharedErrorMessage.INVALID_LOTTO_NUMBER_COUNT.message().formatted(6));
     }
 
     @DisplayName("로또 번호의 개수가 6개 미만이면 예외가 발생한다")
@@ -44,7 +46,7 @@ class LottoTest {
                         new LottoNumber(5)
                 )))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(PurchaseErrorMessage.INVALID_LOTTO_NUMBER_COUNT.message().formatted(6));
+                .hasMessage(SharedErrorMessage.INVALID_LOTTO_NUMBER_COUNT.message().formatted(6));
     }
 
     @DisplayName("로또 번호에 중복된 숫자가 있으면 예외가 발생한다.")
@@ -60,7 +62,7 @@ class LottoTest {
                         new LottoNumber(5)
                 )))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(PurchaseErrorMessage.DUPLICATED_LOTTO_NUMBER.message());
+                .hasMessage(SharedErrorMessage.DUPLICATED_LOTTO_NUMBER.message());
     }
 
     @DisplayName("주어진 번호가 로또에 포함되어 있는지 확인한다.")

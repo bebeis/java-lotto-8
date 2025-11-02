@@ -60,11 +60,11 @@
 
 - 공통: shared
     - LottoNumber
+    - Lotto
 
 - 구매: Purchase
     - VO
         - LottoTicket
-            - Lotto
         - PurchaseAmount
 
 - 추첨: Draw

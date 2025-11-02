@@ -1,5 +1,7 @@
 package lotto.domain.purchase;
 
+import lotto.domain.shared.Lotto;
+
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -15,7 +17,7 @@ public class LottoTicket {
                 .limit(amount.lottoCount())
                 .map(Lotto::new)
                 .toList();
-        
+
         return new LottoTicket(lottos);
     }
 

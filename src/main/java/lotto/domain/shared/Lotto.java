@@ -1,6 +1,4 @@
-package lotto.domain.purchase;
-
-import lotto.domain.shared.LottoNumber;
+package lotto.domain.shared;
 
 import java.util.HashSet;
 import java.util.List;
@@ -23,7 +21,7 @@ public class Lotto {
 
     private void validateLottoNumberCount(final List<LottoNumber> numbers) {
         if (numbers.size() != LOTTO_NUMBER_COUNT) {
-            throw new IllegalArgumentException(PurchaseErrorMessage.INVALID_LOTTO_NUMBER_COUNT
+            throw new IllegalArgumentException(SharedErrorMessage.INVALID_LOTTO_NUMBER_COUNT
                     .message()
                     .formatted(LOTTO_NUMBER_COUNT));
         }
@@ -32,7 +30,7 @@ public class Lotto {
     private void validateNoDuplicateLottoNumbers(final List<LottoNumber> lottoNumbers) {
         Set<LottoNumber> uniqueLottoNumbers = new HashSet<>(lottoNumbers);
         if (uniqueLottoNumbers.size() != LOTTO_NUMBER_COUNT) {
-            throw new IllegalArgumentException(PurchaseErrorMessage.DUPLICATED_LOTTO_NUMBER
+            throw new IllegalArgumentException(SharedErrorMessage.DUPLICATED_LOTTO_NUMBER
                     .message());
         }
     }
