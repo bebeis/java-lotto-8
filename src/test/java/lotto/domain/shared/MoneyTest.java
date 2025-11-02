@@ -1,6 +1,5 @@
 package lotto.domain.shared;
 
-import lotto.common.CommonErrorMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,7 +15,7 @@ class MoneyTest {
     void moneyCannotHaveNegativeValue(int value) {
         assertThatThrownBy(() -> new Money(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CommonErrorMessage.MONEY_NEGATIVE_VALUE.message());
+                .hasMessage(SharedErrorMessage.MONEY_NEGATIVE_VALUE.message());
     }
 
     @DisplayName("돈은 0 이상의 값을 가질 수 있다.")

@@ -1,6 +1,5 @@
 package lotto.domain.shared;
 
-import lotto.common.CommonErrorMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -27,6 +26,6 @@ class LottoNumberTest {
     void lottoNumberOutOfRangeThrowsException(int value) {
         assertThatThrownBy(() -> new LottoNumber(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(CommonErrorMessage.LOTTO_NUMBER_OUT_OF_RANGE.message().formatted(1, 45));
+                .hasMessage(SharedErrorMessage.LOTTO_NUMBER_OUT_OF_RANGE.message().formatted(1, 45));
     }
 }
