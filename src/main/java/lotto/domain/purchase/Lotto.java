@@ -38,4 +38,8 @@ public class Lotto {
                     .message());
         }
     }
+    
+    public boolean contains(final LottoNumber input) {
+        return numbers.contains(input);
+    }
 }
