@@ -42,17 +42,13 @@
     - 로또 구매가 거부되었다. (system)
     - 로또가 발행되었다. (system)
 
-### 당첨 번호 추첨
+### 당첨
 
-- 당첨 번호 지정이 요청되었다. (user)
+- 당첨 번호 등록이 요청되었다.
     - 당첨 번호 지정이 거부되었다. (system)
-    - 당첨 번호가 지정되었다. (system)
-
-### 결과
-
-- 로또 결과 계산이 요청되었다. (system)
+    - 로또 결과 계산이 요청되었다.  (system)
     - 로또의 등수가 계산되었다. (system)
-        - 모든 로또 등수가 계산되었다. (system)
+    - 모든 로또 등수가 계산되었다. (system)
 - 수익률이 계산이 요청되었다. (system)
     - 수익률이 계산되었다. (system)
 
@@ -67,12 +63,9 @@
         - LottoTicket
         - PurchaseAmount
 
-- 추첨: Draw
+- 당첨/결과: Draw
     - VO
         - WinningNumbers
-
-- 결과: Result
-    - VO
         - TicketResult
         - Rank (보너스 유무, 일치 개수)
         - PRIZE
