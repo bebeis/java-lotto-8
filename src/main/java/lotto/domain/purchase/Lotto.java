@@ -8,15 +8,12 @@ import java.util.Set;
 
 public class Lotto {
     public static final int LOTTO_NUMBER_COUNT = 6;
-    
+
     private final List<LottoNumber> numbers;
 
-    public Lotto(List<Integer> numbers) {
-        List<LottoNumber> lottoNumbers = numbers.stream()
-                .map(LottoNumber::new)
-                .toList();
-        validate(lottoNumbers);
-        this.numbers = List.copyOf(lottoNumbers);
+    public Lotto(List<LottoNumber> numbers) {
+        validate(numbers);
+        this.numbers = List.copyOf(numbers);
     }
 
     private void validate(final List<LottoNumber> lottoNumbers) {

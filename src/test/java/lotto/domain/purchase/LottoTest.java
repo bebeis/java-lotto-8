@@ -18,7 +18,16 @@ class LottoTest {
     @DisplayName("로또 번호의 개수가 6개가 넘어가면 예외가 발생한다")
     @Test
     void cannotCreateLottoWhenNumbersExceedSix() {
-        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 6, 7)))
+        assertThatThrownBy(() ->
+                new Lotto(List.of(
+                        new LottoNumber(1),
+                        new LottoNumber(2),
+                        new LottoNumber(3),
+                        new LottoNumber(4),
+                        new LottoNumber(5),
+                        new LottoNumber(6),
+                        new LottoNumber(7)
+                )))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(PurchaseErrorMessage.INVALID_LOTTO_NUMBER_COUNT.message().formatted(6));
     }
@@ -26,16 +35,30 @@ class LottoTest {
     @DisplayName("로또 번호의 개수가 6개 미만이면 예외가 발생한다")
     @Test
     void cannotCreateLottoWhenNumbersUnderSix() {
-        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5)))
+        assertThatThrownBy(() ->
+                new Lotto(List.of(
+                        new LottoNumber(1),
+                        new LottoNumber(2),
+                        new LottoNumber(3),
+                        new LottoNumber(4),
+                        new LottoNumber(5)
+                )))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(PurchaseErrorMessage.INVALID_LOTTO_NUMBER_COUNT.message().formatted(6));
-
     }
 
     @DisplayName("로또 번호에 중복된 숫자가 있으면 예외가 발생한다.")
     @Test
     void cannotCreateLottoWhenNumbersAreDuplicated() {
-        assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 5)))
+        assertThatThrownBy(() ->
+                new Lotto(List.of(
+                        new LottoNumber(1),
+                        new LottoNumber(2),
+                        new LottoNumber(3),
+                        new LottoNumber(4),
+                        new LottoNumber(5),
+                        new LottoNumber(5)
+                )))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(PurchaseErrorMessage.DUPLICATED_LOTTO_NUMBER.message());
     }
@@ -45,7 +68,14 @@ class LottoTest {
     @MethodSource("provideLottoNumberAndResult")
     void checkLottoNumberIsContainedInLotto(LottoNumber lottoNumber, boolean expected) {
         // given
-        Lotto lotto = new Lotto(List.of(1, 3, 10, 30, 40, 45));
+        Lotto lotto = new Lotto(List.of(
+                new LottoNumber(1),
+                new LottoNumber(3),
+                new LottoNumber(10),
+                new LottoNumber(30),
+                new LottoNumber(40),
+                new LottoNumber(45)
+        ));
 
         // when
         boolean result = lotto.contains(lottoNumber);
