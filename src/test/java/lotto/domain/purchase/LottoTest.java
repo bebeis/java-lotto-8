@@ -94,4 +94,37 @@ class LottoTest {
                 Arguments.of(new LottoNumber(7), false)
         );
     }
+
+    @DisplayName("로또 간 일치 개수를 계산한다.")
+    @ParameterizedTest
+    @MethodSource("provideLottosForMatching")
+    void matchCountWith_Parameterized(Lotto lotto1, Lotto lotto2, long expected) {
+        assertThat(lotto1.matchCountWith(lotto2)).isEqualTo(expected);
+    }
+
+    private static Stream<Arguments> provideLottosForMatching() {
+        return Stream.of(
+                Arguments.of(
+                        new Lotto(List.of(new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
+                                new LottoNumber(4), new LottoNumber(5), new LottoNumber(6))),
+                        new Lotto(List.of(new LottoNumber(4), new LottoNumber(5), new LottoNumber(6),
+                                new LottoNumber(7), new LottoNumber(8), new LottoNumber(9))),
+                        3
+                ),
+                Arguments.of(
+                        new Lotto(List.of(new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
+                                new LottoNumber(4), new LottoNumber(5), new LottoNumber(6))),
+                        new Lotto(List.of(new LottoNumber(7), new LottoNumber(8), new LottoNumber(9),
+                                new LottoNumber(10), new LottoNumber(11), new LottoNumber(12))),
+                        0
+                ),
+                Arguments.of(
+                        new Lotto(List.of(new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
+                                new LottoNumber(4), new LottoNumber(5), new LottoNumber(6))),
+                        new Lotto(List.of(new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
+                                new LottoNumber(4), new LottoNumber(5), new LottoNumber(6))),
+                        6
+                )
+        );
+    }
 }
