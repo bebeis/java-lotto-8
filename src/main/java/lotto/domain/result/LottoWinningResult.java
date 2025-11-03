@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LottoWinningResult {
-
     private final EnumMap<Rank, Long> rankCounts;
 
     public LottoWinningResult(WinningLotto winningLotto, List<Lotto> lottos) {
