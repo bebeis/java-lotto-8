@@ -2,6 +2,7 @@ package lotto.domain.result;
 
 import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
+import lotto.domain.shared.LottoValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -30,7 +31,8 @@ class LottoResultServiceTest {
 
     @BeforeEach
     void setUp() {
-        lottoResultService = new LottoResultService();
+        LottoValidator lottoValidator = new LottoValidator();
+        lottoResultService = new LottoResultService(lottoValidator);
         winningNumbers = List.of(1, 2, 3, 4, 5, 6);
         bonusNumber = 7;
     }

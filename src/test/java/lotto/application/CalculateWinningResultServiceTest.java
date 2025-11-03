@@ -10,6 +10,7 @@ import lotto.domain.result.LottoWinningResultRepository;
 import lotto.domain.result.Rank;
 import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
+import lotto.domain.shared.LottoValidator;
 import lotto.infrastructure.InMemoryLottoWinningResultRepository;
 import lotto.infrastructure.InMemoryPurchasedLottosRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +30,8 @@ class CalculateWinningResultServiceTest {
     void setUp() {
         purchasedLottosRepository = new InMemoryPurchasedLottosRepository();
         winningResultRepository = new InMemoryLottoWinningResultRepository();
-        LottoResultService resultService = new LottoResultService();
+        LottoValidator lottoValidator = new LottoValidator();
+        LottoResultService resultService = new LottoResultService(lottoValidator);
 
         calculateWinningResultService = new CalculateWinningResultService(
                 resultService,

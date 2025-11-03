@@ -22,6 +22,10 @@ public class CalculateWinningResultService {
         this.winningResultRepository = winningResultRepository;
     }
 
+    public void validateWinningNumbers(List<Integer> winningNumbers) {
+        resultService.validateWinningNumbers(winningNumbers);
+    }
+
     public LottoWinningResultResponse calculateWinningResult(
             List<Integer> winningNumbers,
             int bonusNumber) {

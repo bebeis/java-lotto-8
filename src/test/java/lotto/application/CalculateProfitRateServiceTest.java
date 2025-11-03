@@ -10,6 +10,7 @@ import lotto.domain.result.LottoWinningResult;
 import lotto.domain.result.LottoWinningResultRepository;
 import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
+import lotto.domain.shared.LottoValidator;
 import lotto.infrastructure.InMemoryLottoWinningResultRepository;
 import lotto.infrastructure.InMemoryPurchasedLottosRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,7 +51,8 @@ class CalculateProfitRateServiceTest {
         PurchasedLottos purchasedLottos = new PurchasedLottos(lottos, purchaseAmount);
         purchasedLottosRepository.save(purchasedLottos);
 
-        LottoResultService resultService = new LottoResultService();
+        LottoValidator lottoValidator = new LottoValidator();
+        LottoResultService resultService = new LottoResultService(lottoValidator);
         LottoWinningResult winningResult = resultService.calculateWinningResult(
                 lottos,
                 List.of(1, 2, 3, 4, 5, 6),
