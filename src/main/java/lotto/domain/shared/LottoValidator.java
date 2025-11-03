@@ -19,7 +19,7 @@ public class LottoValidator {
         validateNoDuplicateLottoNumbers(lottoNumbers);
     }
 
-    private void validateLottoNumberCount(List<?> numbers) {
+    private void validateLottoNumberCount(List<LottoNumber> numbers) {
         if (numbers.size() != LOTTO_NUMBER_COUNT) {
             throw new IllegalArgumentException(SharedErrorMessage.INVALID_LOTTO_NUMBER_COUNT
                     .message()
@@ -27,8 +27,8 @@ public class LottoValidator {
         }
     }
 
-    private void validateNoDuplicateLottoNumbers(List<?> numbers) {
-        Set<?> uniqueNumbers = new HashSet<>(numbers);
+    private void validateNoDuplicateLottoNumbers(List<LottoNumber> numbers) {
+        Set<LottoNumber> uniqueNumbers = new HashSet<>(numbers);
         if (uniqueNumbers.size() != LOTTO_NUMBER_COUNT) {
             throw new IllegalArgumentException(SharedErrorMessage.DUPLICATED_LOTTO_NUMBER
                     .message());
