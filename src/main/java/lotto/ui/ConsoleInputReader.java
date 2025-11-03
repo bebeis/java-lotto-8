@@ -15,13 +15,13 @@ public class ConsoleInputReader implements InputReader {
     @Override
     public int readPurchaseAmount() {
         System.out.print(PURCHASE_AMOUNT_PROMPT);
-        return TypeConverter.toInteger(Console.readLine());
+        return TypeConverter.toInteger(readLineFromConsole());
     }
 
     @Override
     public List<Integer> readWinningNumbers() {
         System.out.print(WINNING_NUMBERS_PROMPT);
-        String input = Console.readLine();
+        String input = readLineFromConsole();
         return CommaSeparator.split(input).stream()
                 .map(TypeConverter::toInteger)
                 .toList();
@@ -30,6 +30,10 @@ public class ConsoleInputReader implements InputReader {
     @Override
     public int readBonusNumber() {
         System.out.print(BONUS_NUMBER_PROMPT);
-        return TypeConverter.toInteger(Console.readLine());
+        return TypeConverter.toInteger(readLineFromConsole());
+    }
+
+    private String readLineFromConsole() {
+        return Console.readLine();
     }
 }
