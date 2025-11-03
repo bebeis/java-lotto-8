@@ -2,10 +2,10 @@ package lotto.application;
 
 import lotto.application.purchase.PurchaseLottosService;
 import lotto.application.purchase.PurchasedLottoResponse;
-import lotto.domain.purchase.LottoGenerator;
-import lotto.domain.purchase.LottoNumberGenerator;
 import lotto.domain.purchase.LottoPurchaseService;
 import lotto.domain.purchase.PurchasedLottosRepository;
+import lotto.domain.purchase.generator.LottoGenerator;
+import lotto.domain.purchase.generator.LottoNumberGenerator;
 import lotto.infrastructure.InMemoryPurchasedLottosRepository;
 import lotto.stub.FixedLottoNumberGenerator;
 import org.junit.jupiter.api.BeforeEach;

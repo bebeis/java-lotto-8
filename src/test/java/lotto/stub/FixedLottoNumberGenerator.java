@@ -1,6 +1,6 @@
 package lotto.stub;
 
-import lotto.domain.purchase.LottoNumberGenerator;
+import lotto.domain.purchase.generator.LottoNumberGenerator;
 import lotto.domain.shared.LottoNumber;
 
 import java.util.List;

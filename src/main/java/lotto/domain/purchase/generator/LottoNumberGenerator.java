@@ -1,4 +1,4 @@
-package lotto.domain.purchase;
+package lotto.domain.purchase.generator;
 
 import lotto.domain.shared.LottoNumber;
 

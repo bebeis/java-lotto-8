@@ -1,5 +1,6 @@
 package lotto.domain.purchase;
 
+import lotto.domain.purchase.generator.LottoGenerator;
 import lotto.domain.shared.Lotto;
 
 import java.util.List;

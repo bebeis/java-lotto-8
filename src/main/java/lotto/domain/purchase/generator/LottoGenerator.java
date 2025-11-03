@@ -1,5 +1,6 @@
-package lotto.domain.purchase;
+package lotto.domain.purchase.generator;
 
+import lotto.domain.purchase.PurchaseAmount;
 import lotto.domain.shared.Lotto;
 
 import java.util.List;

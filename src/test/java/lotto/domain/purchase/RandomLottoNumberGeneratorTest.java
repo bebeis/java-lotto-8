@@ -1,5 +1,6 @@
 package lotto.domain.purchase;
 
+import lotto.domain.purchase.generator.RandomLottoNumberGenerator;
 import lotto.domain.shared.LottoNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
