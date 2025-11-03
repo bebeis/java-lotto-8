@@ -1,7 +1,7 @@
 package lotto.domain.purchase;
 
 import lotto.domain.shared.Lotto;
-import lotto.domain.shared.LottoNumber;
+import lotto.stub.FixedLottoNumberGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,7 +19,7 @@ class LottoPurchaseServiceTest {
 
     @BeforeEach
     void setUp() {
-        LottoNumberGenerator numberGenerator = new TestLottoNumberGenerator();
+        LottoNumberGenerator numberGenerator = new FixedLottoNumberGenerator();
         LottoGenerator lottoGenerator = new LottoGenerator(numberGenerator);
         lottoPurchaseService = new LottoPurchaseService(lottoGenerator);
     }
@@ -49,19 +49,5 @@ class LottoPurchaseServiceTest {
     void throwExceptionWhenAmountIsNotDivisible(int amount) {
         assertThatThrownBy(() -> lottoPurchaseService.purchaseLottos(amount))
                 .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    static class TestLottoNumberGenerator implements LottoNumberGenerator {
-        @Override
-        public List<LottoNumber> generate() {
-            return List.of(
-                    new LottoNumber(1),
-                    new LottoNumber(2),
-                    new LottoNumber(3),
-                    new LottoNumber(4),
-                    new LottoNumber(5),
-                    new LottoNumber(6)
-            );
-        }
     }
 }
