@@ -1,4 +1,4 @@
-package lotto.domain.purchase;
+package lotto.service;
 
 import lotto.domain.shared.Lotto;
 
