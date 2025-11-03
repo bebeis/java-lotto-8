@@ -7,6 +7,7 @@ import lotto.domain.purchase.PurchasedLottos;
 import lotto.domain.purchase.PurchasedLottosRepository;
 import lotto.domain.result.LottoResultService;
 import lotto.domain.result.LottoWinningResultRepository;
+import lotto.domain.result.Rank;
 import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
 import lotto.infrastructure.InMemoryLottoWinningResultRepository;
@@ -59,6 +60,9 @@ class CalculateWinningResultServiceTest {
 
         // then
         assertThat(response).isNotNull();
+        assertThat(response.rankCounts()).containsEntry(Rank.FIRST, 1L);
+        assertThat(response.rankCounts()).doesNotContainKeys(Rank.SECOND, Rank.THIRD, Rank.FOURTH, Rank.FIFTH);
+        assertThat(response.totalPrize()).isEqualTo(2_000_000_000L);
         assertThat(winningResultRepository.find()).isNotNull();
     }
 }
