@@ -4,7 +4,6 @@ import lotto.domain.shared.Lotto;
 import lotto.domain.shared.LottoNumber;
 
 public class WinningLotto {
-
     private final Lotto winningLotto;
     private final LottoNumber bonusNumber;
 
