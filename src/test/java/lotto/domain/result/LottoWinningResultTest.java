@@ -18,12 +18,9 @@ class LottoWinningResultTest {
 
     @BeforeEach
     void setUp() {
-        winningLotto = new WinningLotto(
-                new Lotto(List.of(
-                        new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
-                        new LottoNumber(4), new LottoNumber(5), new LottoNumber(6)
-                )),
-                new LottoNumber(7)
+        winningLotto = WinningLotto.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                7
         );
 
         lottos = List.of(

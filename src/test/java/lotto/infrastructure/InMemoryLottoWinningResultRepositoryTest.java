@@ -25,12 +25,9 @@ class InMemoryLottoWinningResultRepositoryTest {
     @Test
     void saveAndFind() {
         // given
-        WinningLotto winningLotto = new WinningLotto(
-                new Lotto(List.of(
-                        new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
-                        new LottoNumber(4), new LottoNumber(5), new LottoNumber(6)
-                )),
-                new LottoNumber(7)
+        WinningLotto winningLotto = WinningLotto.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                7
         );
         List<Lotto> purchasedLottos = List.of(
                 new Lotto(List.of(
@@ -62,12 +59,9 @@ class InMemoryLottoWinningResultRepositoryTest {
     @DisplayName("여러 등수가 포함된 당첨 결과를 저장하고 조회할 수 있다")
     void saveAndFindMultipleRanks() {
         // given
-        WinningLotto winningLotto = new WinningLotto(
-                new Lotto(List.of(
-                        new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
-                        new LottoNumber(4), new LottoNumber(5), new LottoNumber(6)
-                )),
-                new LottoNumber(7)
+        WinningLotto winningLotto = WinningLotto.of(
+                List.of(1, 2, 3, 4, 5, 6),
+                7
         );
         List<Lotto> purchasedLottos = List.of(
                 // 1등: 6개 일치

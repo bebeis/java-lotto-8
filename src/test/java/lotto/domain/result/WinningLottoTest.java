@@ -29,16 +29,9 @@ class WinningLottoTest {
     }
 
     static Stream<Arguments> provideWinningAndPurchasedLottos() {
-        WinningLotto winningLotto = new WinningLotto(
-                new Lotto(List.of(
-                        new LottoNumber(1),
-                        new LottoNumber(2),
-                        new LottoNumber(3),
-                        new LottoNumber(10),
-                        new LottoNumber(22),
-                        new LottoNumber(31)
-                )),
-                new LottoNumber(42) // 보너스 번호
+        WinningLotto winningLotto = WinningLotto.of(
+                List.of(1, 2, 3, 10, 22, 31),
+                42 // 보너스 번호
         );
 
         return Stream.of(
@@ -145,18 +138,11 @@ class WinningLottoTest {
     @DisplayName("보너스 번호가 당첨 번호와 중복되면 예외가 발생한다")
     void validateBonusNumberNotDuplicated() {
         // given
-        Lotto winningNumbers = new Lotto(List.of(
-                new LottoNumber(1),
-                new LottoNumber(2),
-                new LottoNumber(3),
-                new LottoNumber(4),
-                new LottoNumber(5),
-                new LottoNumber(6)
-        ));
-        LottoNumber duplicatedBonusNumber = new LottoNumber(6);
+        List<Integer> winningNumbers = List.of(1, 2, 3, 4, 5, 6);
+        int duplicatedBonusNumber = 6;
 
         // when & then
-        assertThatThrownBy(() -> new WinningLotto(winningNumbers, duplicatedBonusNumber))
+        assertThatThrownBy(() -> WinningLotto.of(winningNumbers, duplicatedBonusNumber))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ResultErrorMessage.BONUS_NUMBER_DUPLICATED_WITH_WINNING_NUMBERS.message());
     }
