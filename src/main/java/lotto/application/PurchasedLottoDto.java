@@ -1,4 +1,4 @@
-package lotto.service;
+package lotto.application;
 
 import lotto.domain.shared.Lotto;
 
