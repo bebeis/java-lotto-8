@@ -18,6 +18,6 @@ public class PurchaseLottosService {
     public PurchasedLottoResponse purchaseLottos(int amount) {
         PurchasedLottos purchasedLottos = purchaseService.purchase(amount);
         purchasedLottosRepository.save(purchasedLottos);
-        return new PurchasedLottoResponse(purchasedLottos.lottos());
+        return PurchasedLottoResponse.from(purchasedLottos);
     }
 }

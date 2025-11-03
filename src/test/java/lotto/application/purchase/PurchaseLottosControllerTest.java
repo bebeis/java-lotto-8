@@ -1,7 +1,5 @@
 package lotto.application.purchase;
 
-import lotto.domain.shared.Lotto;
-import lotto.domain.shared.LottoNumber;
 import lotto.stub.SpyOutputView;
 import lotto.stub.StubInputReader;
 import org.junit.jupiter.api.BeforeEach;
@@ -89,14 +87,8 @@ class PurchaseLottosControllerTest {
             // given
             PurchasedLottoResponse expectedResponse = new PurchasedLottoResponse(
                     List.of(
-                            new Lotto(List.of(
-                                    new LottoNumber(1), new LottoNumber(2), new LottoNumber(3),
-                                    new LottoNumber(4), new LottoNumber(5), new LottoNumber(6)
-                            )),
-                            new Lotto(List.of(
-                                    new LottoNumber(7), new LottoNumber(8), new LottoNumber(9),
-                                    new LottoNumber(10), new LottoNumber(11), new LottoNumber(12)
-                            ))
+                            List.of(1, 2, 3, 4, 5, 6),
+                            List.of(7, 8, 9, 10, 11, 12)
                     )
             );
             StubPurchaseLottosService purchaseLottosService = new StubPurchaseLottosService(expectedResponse);
