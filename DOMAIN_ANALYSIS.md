@@ -60,13 +60,11 @@
 
 - 구매: Purchase
     - VO
-        - LottoTicket
+        - PurchasedLottos
         - PurchaseAmount
 
-- 당첨/결과: Draw
+- 당첨: winning
     - VO
-        - WinningNumbers
-        - TicketResult
-        - Rank (보너스 유무, 일치 개수)
-        - PRIZE
-        - ProfitRate
+        - WinningLotto
+        - LottoWinningResult, ProfitRate
+        - Rank (보너스 유무, 일치 개수, 상금)
