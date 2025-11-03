@@ -11,8 +11,9 @@ public class LottoPurchaseService {
         this.lottoGenerator = lottoGenerator;
     }
 
-    public List<Lotto> purchaseLottos(int amount) {
+    public PurchasedLottos purchase(int amount) {
         PurchaseAmount purchaseAmount = new PurchaseAmount(amount);
-        return lottoGenerator.generate(purchaseAmount);
+        List<Lotto> lottos = lottoGenerator.generate(purchaseAmount);
+        return new PurchasedLottos(lottos, purchaseAmount);
     }
 }
